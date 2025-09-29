@@ -1,0 +1,85 @@
+@font-face {
+	font-family: "Bellefair";
+	src: url("../assets/Bellefair-Regular.ttf");
+}
+@font-face {
+	font-family: "Barlow";
+	src: url("../assets/Barlow-Regular.ttf");
+}
+
+:root {
+	--dark-blue: #0b0d17;
+	-light-blue: #d0d6f9;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-image: url("../assets/crew/background-crew-desktop.jpg");
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 100%;
+	color: white;
+	font-family: "Barlow";
+	background-attachment: fixed;
+	min-height: 100%;
+}
+
+.header-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2vw 1vw 0 2vw;
+	margin-bottom: 2vw;
+	font-family: "Barlow";
+	color: white;
+	position: relative;
+}
+.header-links {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 50%;
+	height: 6vw;
+	list-style: none;
+	padding-left: 3vw;
+	backdrop-filter: blur(10vw);
+	z-index: 0;
+	padding-top: 2.5vw;
+}
+.header-link {
+	cursor: pointer;
+	position: relative;
+	display: inline-block;
+}
+.header-link::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 5%;
+	width: 0;
+	height: 2px;
+	background-color: white;
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+.header-link:hover::after {
+	opacity: 1;
+	width: 100%;
+}
+.active::after {
+	opacity: 1;
+	width: 100%;
+}
+.divider {
+	position: absolute;
+	left: 9vw;
+	width: 40%;
+	height: 0.1vw;
+	background-color: white;
+	z-index: 1;
+}
