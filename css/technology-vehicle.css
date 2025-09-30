@@ -17,7 +17,7 @@
 	box-sizing: border-box;
 }
 body {
-	background-image: url("../assets/crew/background-crew-desktop.jpg");
+	background-image: url("../assets/technology/background-technology-desktop.jpg");
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -82,4 +82,83 @@ body {
 	height: 0.1vw;
 	background-color: white;
 	z-index: 1;
+}
+/* main */
+h3 {
+	padding-left: 8vw;
+	padding-top: 3vw;
+	font-size: 2vw;
+	font-weight: 100;
+}
+.number-bold {
+	font-weight: bold;
+	color: darkgray;
+	margin-right: 2vw;
+}
+main {
+	flex: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+	height: 100%;
+}
+.main-container {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 10%;
+	img {
+		width: 35vw;
+	}
+	padding-left: 7vw;
+}
+.main-content {
+	width: 80%;
+	height: 50vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2vw;
+	h4 {
+		font-family: "Bellefair";
+		font-size: 2.5vw;
+		color: darkgray;
+		font-weight: 100;
+	}
+	h1 {
+		font-family: "Bellefair";
+		font-size: 3vw;
+		font-weight: 100;
+	}
+	p {
+		line-height: 2.2vw;
+		width: 100%;
+		font-size: 1.3vw;
+	}
+}
+
+/* Кнопки */
+.buttons-num {
+	display: flex;
+	flex-direction: column;
+	gap: 2vw;
+}
+.num-btn {
+	width: 7vw;
+	height: 7vw;
+	border-radius: 100%;
+	border: 0.1vw solid white;
+	background: none;
+	font-family: "Bellefair";
+	color: white;
+	font-size: 2vw;
+	cursor: pointer;
+}
+.btn-active {
+	background-color: white;
+	color: black;
+}
+.num-btn:hover {
+	background-color: white;
+	color: black;
 }
