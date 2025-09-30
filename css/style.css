@@ -9,26 +9,51 @@
 
 :root {
 	--dark-blue: #0b0d17;
-	-light-blue: #d0d6f9;
+	--light-blue: #d0d6f9;
 }
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-body {
-	background-image: url("../assets/home/background-home-desktop.jpg");
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
+
 html,
 body {
 	height: 100%;
 }
+
+body {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	color: white;
+	font-family: "Barlow";
+	min-height: 100%;
+}
+
+/* Фоновые изображения для разных страниц */
+body.home-page {
+	background-image: url("../assets/home/background-home-desktop.jpg");
+}
+
+body.destination-page {
+	background-image: url("../assets/destination/background-destination-desktop.jpg");
+}
+
+body.crew-page {
+	background-image: url("../assets/crew/background-crew-desktop.jpg");
+}
+
+body.technology-page {
+	background-image: url("../assets/technology/background-technology-desktop.jpg");
+}
+
+/* HEADER */
 .header-content {
 	display: flex;
 	flex-direction: row;
@@ -36,10 +61,14 @@ body {
 	align-items: center;
 	padding: 2vw 1vw 0 2vw;
 	margin-bottom: 2vw;
-	font-family: "Barlow";
-	color: white;
 	position: relative;
 }
+
+.logo {
+	width: 5vw !important;
+	height: 5vw !important;
+}
+
 .header-links {
 	display: flex;
 	flex-direction: row;
@@ -52,11 +81,13 @@ body {
 	z-index: 0;
 	padding-top: 2.5vw;
 }
+
 .header-link {
 	cursor: pointer;
 	position: relative;
 	display: inline-block;
 }
+
 .header-link::after {
 	content: "";
 	position: absolute;
@@ -68,14 +99,17 @@ body {
 	opacity: 0;
 	transition: opacity 1s ease;
 }
+
 .header-link:hover::after {
 	opacity: 1;
 	width: 100%;
 }
-.active::after {
+
+.header-link.active::after {
 	opacity: 1;
 	width: 100%;
 }
+
 .divider {
 	position: absolute;
 	left: 9vw;
@@ -85,41 +119,73 @@ body {
 	z-index: 1;
 }
 
-/* main */
+/* COMMON STYLES */
+.number-bold {
+	font-weight: bold;
+	color: darkgray;
+	margin-right: 2vw;
+}
+
+h3 {
+	padding-left: 5vw;
+	margin-bottom: 5vw;
+	font-size: 2vw;
+	font-weight: 100;
+}
+
 main {
 	flex: 1;
 	display: flex;
 	justify-content: space-around;
-	align-items: flex-end;
-	padding: 0 3vw 5vw 2vw;
 	height: 100%;
-	h3 {
-		font-size: 1.5vw;
-		font-weight: 100;
-		letter-spacing: 0.2vw;
-	}
-	h1 {
-		font-family: "Bellefair";
-		font-size: 7vw;
-		font-weight: 100;
-	}
-	p {
-		line-height: 2.3vw;
-	}
 }
+
 .main-container {
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
+	width: 90%;
+	gap: 10%;
 }
+
 .main-content {
+	color: white;
+	font-family: "Barlow";
+}
+
+/* HOME PAGE */
+.home-page main {
+	padding: 0 3vw 5vw 2vw;
+	align-items: flex-end;
+}
+
+.home-page .main-container {
+	justify-content: space-around;
+}
+
+.home-page .main-content {
 	display: flex;
 	flex-direction: column;
 	width: 50%;
 	gap: 1vw;
-	color: white;
-	font-family: "Barlow";
 }
+
+.home-page h3 {
+	font-size: 1.5vw;
+	font-weight: 100;
+	letter-spacing: 0.2vw;
+	padding: 0;
+}
+
+.home-page h1 {
+	font-family: "Bellefair";
+	font-size: 7vw;
+	font-weight: 100;
+}
+
+.home-page p {
+	line-height: 2.3vw;
+}
+
 #explore {
 	width: 15vw;
 	height: 15vw;
@@ -134,6 +200,7 @@ main {
 	transition: transform 0.3s ease;
 	z-index: 1;
 }
+
 #explore::before {
 	content: "";
 	position: absolute;
@@ -152,5 +219,218 @@ main {
 #explore:hover::before {
 	width: 150%;
 	height: 150%;
+	opacity: 1;
+}
+
+/* DESTINATION PAGE */
+.destination-page main {
+	padding: 5vw 0 3vw 5vw;
+	align-items: flex-start;
+}
+.destination-page {
+	padding-left: 3vw;
+}
+.destination-page .main-content {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 2vw;
+	padding-top: 2vw;
+}
+
+.destination-page p {
+	line-height: 2vw;
+	width: 70%;
+	font-size: 1.2vw;
+}
+
+.destination-page h1 {
+	font-family: "Bellefair";
+	font-size: 7vw;
+	font-weight: 100;
+}
+
+.planet-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 50%;
+	list-style: none;
+}
+
+.planet-link {
+	cursor: pointer;
+	position: relative;
+	height: 2vw;
+}
+
+.planet-link::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 3%;
+	width: 0;
+	height: 2px;
+	background-color: white;
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+
+.planet-link:hover::after {
+	opacity: 1;
+	width: 100%;
+}
+
+.planet-link.planet-active::after {
+	opacity: 1;
+	width: 100%;
+}
+
+.divider-main {
+	width: 70%;
+	height: 0.05vw;
+	background-color: white;
+	z-index: 1;
+}
+
+.about-numbers {
+	display: flex;
+	gap: 10vw;
+}
+
+.about-element {
+	display: flex;
+	flex-direction: column;
+	gap: 1vw;
+}
+
+.about-num {
+	font-family: "Bellefair";
+	font-size: 2vw;
+}
+
+/* CREW PAGE */
+.crew-page main {
+	padding: 5vw 0 3vw 8vw;
+	align-items: flex-start;
+}
+.crew-wrapper h3 {
+	margin-bottom: 0;
+	padding-left: 2vw;
+}
+.crew-page .main-content {
+	width: 80%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 3vw;
+	padding-top: 2vw;
+}
+
+.crew-page h4 {
+	font-family: "Bellefair";
+	font-size: 2.5vw;
+	color: darkgray;
+	font-weight: 100;
+}
+
+.crew-page h1 {
+	font-family: "Bellefair";
+	font-size: 4vw;
+	font-weight: 100;
+}
+
+.crew-page p {
+	line-height: 2.2vw;
+	width: 90%;
+	font-size: 1.3vw;
+}
+
+.crew-page img {
+	width: 35vw;
+}
+
+/* TECHNOLOGY PAGE */
+.technology-page main {
+	padding: 5vw 0 0 0;
+	align-items: flex-start;
+}
+
+.technology-page .main-container {
+	width: 100%;
+	padding-left: 7vw;
+}
+
+.technology-page .main-content {
+	width: 80%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2vw;
+}
+
+.technology-page h4 {
+	font-family: "Bellefair";
+	font-size: 2.5vw;
+	color: darkgray;
+	font-weight: 100;
+}
+
+.technology-page h1 {
+	font-family: "Bellefair";
+	font-size: 3vw;
+	font-weight: 100;
+}
+
+.technology-page p {
+	line-height: 2.2vw;
+	width: 100%;
+	font-size: 1.3vw;
+}
+
+.technology-page img {
+	width: 35vw;
+}
+
+.buttons-num {
+	display: flex;
+	flex-direction: column;
+	gap: 2vw;
+}
+
+.num-btn {
+	width: 7vw;
+	height: 7vw;
+	border-radius: 100%;
+	border: 0.1vw solid white;
+	background: none;
+	font-family: "Bellefair";
+	color: white;
+	font-size: 2vw;
+	cursor: pointer;
+}
+
+.num-btn.btn-active {
+	background-color: white;
+	color: black;
+}
+
+.num-btn:hover {
+	background-color: white;
+	color: black;
+}
+
+/* ANIMATIONS */
+#main-content {
+	transition: opacity 0.3s ease;
+}
+
+.fade-out {
+	opacity: 0;
+}
+
+.fade-in {
 	opacity: 1;
 }
